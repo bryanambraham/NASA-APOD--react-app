@@ -1,0 +1,237 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: white;
+  background-color: #030615;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root{
+  min-height: 100vh;
+  display: flex;
+  display: relative;
+}
+
+.imgContainer{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.bgImage{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+footer h2{
+  font-size: 1.5rem;
+}
+
+footer h1{
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+footer div{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+footer button{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+footer button i{
+  font-size: 1.2rem;
+}
+
+footer button:hover{
+  opacity: 50%;
+  transition-duration: 150ms;
+}
+
+.bgGradient{
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: liner-gradient(to top, #030615, rgba(255,255,255,0));
+}
+
+.Sidebar{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.bgOverlay{
+  position: absolute;
+  inset: 0;
+  background-color: #030615;
+  opacity: 0.5;
+  z-index: 20;
+}
+
+.SidebarContents{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: scroll;
+  height: 80%;
+  width: 90%;
+  max-height: 100vh;
+  max-width: 800px;
+  margin: auto;
+  background-color: #030615;
+  gap: 1rem;
+}
+
+.SidebarContents button i{
+  font-size: 1.2rem;
+}
+
+.SidebarContents h2, button{
+  z-index: 20;
+}
+
+.Description p{
+  position: relative;
+  z-index: 20;
+}
+
+.SidebarContents button:hover{
+  opacity: 50%;
+  transition-duration: 150ms;
+}
+
+.SidebarContents::-webkit-scrollbar{
+  display: none;
+}
+
+.SidebarContents div{
+  flex: 1;
+}
+.SidebarContents h2{
+  font-size: 1.4rem;
+  font-weight: 200;
+}
+
+.SidebarContents button{
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  margin-right: auto;
+  cursor: pointer;
+  padding: 1rem 0;
+}
+
+.LoadingState{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.LoadingState i{
+  opacity: 0.2;
+  font-size: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+.DescriptionTitle{
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+} 
+
+
+
+@keyframes spin {
+  from{
+    transform: rotate(0deg);
+  }to{
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (min-width: 640px){
+  .Sidebar{
+    position: relative;
+    inset: unset;
+    min-width: 30%;
+    box-shadow: 0 0 40px 5px #030615;
+  }
+
+  .SidebarContents div{
+    flex: 1;
+  }
+  
+  .SidebarContents{
+    margin: unset;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px){
+  .imgContainer{
+    width: 100%;
+  }
+
+  .SidebarContents {
+    margin: unset;
+    width: 100%;
+    height: auto; /* Sesuaikan agar tingginya dinamis */
+    max-height: 100vh; /* Pastikan tidak melebihi tinggi viewport */
+  }
+
+  .Sidebar {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Pastikan Sidebar menggunakan tinggi penuh viewport */
+    box-shadow: 0 0 40px 5px #030615;
+  }
+
+  .Description p {
+    font-size: 0.85rem; /* Menyesuaikan ukuran font untuk layar lebih kecil */
+  }
+  
+  Footer{
+    max-width: 65%;
+  }
+}
