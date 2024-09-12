@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar"
 
 function App() {
   const[Data,setData] = useState(null)
-  const[Loading,setLoading] = useState(false)
+  // const[Loading,setLoading] = useState(false)
   const[showSidebar, setSidebar] = useState(false)
 
   function handleToggleSidebar(){ // ini function untuk interaksi ikonnya
@@ -38,7 +38,7 @@ function App() {
         console.log(err.message)
       }
     }
-    fetchAPIData()
+    fetchAPIData() //dimatiin pas mau bikin Loading
   }, []) //kalo[] berarti artinya jalanin fungsi useEffect tiap kali page-nya laod
 
   return (
@@ -48,6 +48,7 @@ function App() {
           <i className="fa-solid fa-gear"></i>
         </div>
       )}
+      
       {showSidebar &&( //ini artinya kalau showSidebar = true, berarti kalo aktif
         <Sidebar Data={Data} handleToggleSidebar={handleToggleSidebar}/>
       )}
